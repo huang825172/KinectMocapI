@@ -4,7 +4,9 @@
 #include <qwidget.h>
 #include <opencv.hpp>
 
-CamThread::CamThread(QObject *parent) : QThread(parent) {}
+CamThread::CamThread(QObject *parent) : QThread(parent) {
+  qRegisterMetaType<cv::Mat>("cv::Mat");
+}
 
 CamThread::~CamThread() {}
 
@@ -27,7 +29,6 @@ void CamThread::run() {
 
   while (!done) {
     IColorFrame *color_frame;
-    QImage qt_color_frame;
     cv::Mat cv_color_frame(color_height, color_width, CV_8UC4);
     while (color_reader->AcquireLatestFrame(&color_frame) != S_OK)
       ;
@@ -35,10 +36,7 @@ void CamThread::run() {
                                                cv_color_frame.data,
                                                ColorImageFormat_Bgra);
     cv::cvtColor(cv_color_frame, cv_color_frame, CV_BGR2RGB);
-    qt_color_frame =
-        QImage((cv_color_frame.data), cv_color_frame.cols, cv_color_frame.rows,
-               static_cast<int>(cv_color_frame.step), QImage::Format_RGB888);
-    emit sColorFrame(qt_color_frame.copy());
+    emit sColorFrame(cv_color_frame.clone());
     if (color_frame != nullptr) color_frame->Release();
     cv::waitKey(30);
   }

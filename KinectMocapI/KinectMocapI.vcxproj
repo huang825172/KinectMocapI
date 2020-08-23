@@ -49,10 +49,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;D:\DevTools\opencv\build\include;$(Qt_INCLUDEPATH_);.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;D:\DevTools\opencv440contrib_nopy\include;$(Qt_INCLUDEPATH_);.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\Lib\x64;D:\DevTools\boost_1_74_0\lib64-msvc-14.2;D:\DevTools\opencv\build\x64\vc15\lib;$(Qt_LIBPATH_);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\Lib\x64;D:\DevTools\boost_1_74_0\lib64-msvc-14.2;D:\DevTools\opencv440contrib_nopy\x64\vc15\lib;$(Qt_LIBPATH_);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(Qt_LIBS_);opencv_world440d.lib;kinect20.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

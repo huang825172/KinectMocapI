@@ -12,10 +12,14 @@ class KinectMocapI : public QMainWindow {
 
  private:
   Ui::KinectMocapIClass ui;
-  CalibrationWindow *cWindow;
+  std::shared_ptr<CalibrationWindow> cWindow;
 
  private slots:
   void on_calibration_open();
   void on_calibration_confirm();
   void on_calibration_close();
+  void on_calibration_message(QString msg);
+
+ protected:
+  void closeEvent(QCloseEvent *event);
 };

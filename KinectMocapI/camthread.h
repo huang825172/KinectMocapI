@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QThread>
+#include <opencv.hpp>
 
 class CamThread : public QThread {
   Q_OBJECT
@@ -12,6 +13,6 @@ class CamThread : public QThread {
   void run();
   bool done;
 
-signals:
-  void sColorFrame(QImage f);
+ signals:
+  void sColorFrame(cv::Mat frame);
 };
