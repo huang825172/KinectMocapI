@@ -13,6 +13,15 @@ class CamThread : public QThread {
   void run();
   bool done;
 
+ private:
+  bool query;
+  std::vector<cv::Point2f> points_query;
+
  signals:
-  void sColorFrame(cv::Mat frame);
+  void sColorFrame(cv::Mat color_frame);
+  void sQueryResult(std::vector<cv::Point3f> points);
+  void sErr(QString err);
+
+ private slots:
+  void on_QueryCameraPoints(std::vector<cv::Point2f> points);
 };

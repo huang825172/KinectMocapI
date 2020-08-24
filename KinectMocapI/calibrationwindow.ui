@@ -55,9 +55,31 @@
       </widget>
      </item>
      <item>
+      <widget class="QComboBox" name="sizeComboBox">
+       <item>
+        <property name="text">
+         <string>Small(0.5m)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Middle(1m)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Large(2m)</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Preferred</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
